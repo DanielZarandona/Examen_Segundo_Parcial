@@ -4,10 +4,10 @@ using System.Data;
 
 namespace FiltersMDXCubeNortwind
 {
-   
-    public class QueryMdx
+    //C:\Program Files\Microsoft.NET\ADOMD.NET\150\Microsoft.AnalysisServices.AdomdClient.dll
+    public class ConsultaMex
     {
-        
+        //Obtener Nombre de Clientes
         public DataTable GetClientsQueryMdx()
         {
             string dimension = "";
@@ -15,10 +15,10 @@ namespace FiltersMDXCubeNortwind
             dimension = "[Dim Cliente].[Dim Cliente Nombre]";
             List<ChartDataPie> LstChartDataPie = new List<ChartDataPie>();
             var mdxQuery = $@"
-                            SELECT NON EMPTY {{ [Measures].[Fact Ventas Netas] }}
-                             ON COLUMNS, NON EMPTY {{ ( {dimension}.Children) }} 
-                            ON ROWS FROM [DWH Northwind]";
-            using (AdomdConnection cnn = new AdomdConnection($@"Provider=MSOLAP; Data Source=localhost;Catalog=DWHNorthwind; User ID=sa; Password = daniel; Persist Security Info = True; Impersonation Level = Impersonate"))
+SELECT NON EMPTY {{ [Measures].[Fact Ventas Netas] }}
+ ON COLUMNS, NON EMPTY {{ ( {dimension}.Children) }} 
+ON ROWS FROM [DWH Northwind]";
+            using (AdomdConnection cnn = new AdomdConnection($@"Provider=MSOLAP; Data Source=localhost;Catalog=Cubo811; User ID=sa; Password = daniel; Persist Security Info = True; Impersonation Level = Impersonate"))
             {
                 AdomdDataAdapter adomdDataAdapter;
                 cnn.Open();
@@ -64,29 +64,29 @@ namespace FiltersMDXCubeNortwind
             DataTable dataTable = new DataTable();
             List<ChartDataPie> LstChartDataPie = new List<ChartDataPie>();
             var mdxQuery = $@"
-                             SELECT NON EMPTY {{
+ SELECT NON EMPTY {{
 
-                             (
-                              [Dim Tiempo].[Dim Tiempo Año].[Dim Tiempo Año].ALLMEMBERS *
-                              [Dim Tiempo].[Dim Tiempo Mes].[Dim Tiempo Mes].ALLMEMBERS
-                             )
-                             }}
-                             ON COLUMNS, NON EMPTY {{ (
-                             (
-                              [Measures].[Fact Ventas Netas],
-                             [Dim Cliente].[Dim Cliente Nombre].[Dim Cliente Nombre].ALLMEMBERS
-                             )
-                             )
-                             }}  ON ROWS FROM  ( SELECT ( {{
-                            {SelectedYears}
-                             }}) ON COLUMNS FROM ( SELECT ( {{
-                            {SelectedMonths}
-                             }} ) ON COLUMNS FROM ( SELECT ( {{
-                            {SelectedClients} 
-                             }} ) ON COLUMNS 
-                             FROM [DWH Northwind]))) 
-                            ";
-            using (AdomdConnection cnn = new AdomdConnection($@"Provider=MSOLAP; Data Source=localhost;Catalog=CuboNorthwindISSC811; User ID=sa; Password = roverto; Persist Security Info = True; Impersonation Level = Impersonate"))
+ (
+  [Dim Tiempo].[Dim Tiempo Año].[Dim Tiempo Año].ALLMEMBERS *
+  [Dim Tiempo].[Dim Tiempo Mes].[Dim Tiempo Mes].ALLMEMBERS
+ )
+ }}
+ ON COLUMNS, NON EMPTY {{ (
+ (
+  [Measures].[Fact Ventas Netas],
+ [Dim Cliente].[Dim Cliente Nombre].[Dim Cliente Nombre].ALLMEMBERS
+ )
+ )
+ }}  ON ROWS FROM  ( SELECT ( {{
+{SelectedYears}
+ }}) ON COLUMNS FROM ( SELECT ( {{
+{SelectedMonths}
+ }} ) ON COLUMNS FROM ( SELECT ( {{
+{SelectedClients} 
+ }} ) ON COLUMNS 
+ FROM [DWH Northwind]))) 
+";
+            using (AdomdConnection cnn = new AdomdConnection($@"Provider=MSOLAP; Data Source=localhost;Catalog=Cubo811; User ID=sa; Password = roverto; Persist Security Info = True; Impersonation Level = Impersonate"))
             {
                 AdomdDataAdapter adomdDataAdapter;
                 cnn.Open();
@@ -168,29 +168,29 @@ namespace FiltersMDXCubeNortwind
             List<ChartDataPie> LstChartDataPie = new List<ChartDataPie>();
             var mdxQuery = $@"
 
-                             SELECT NON EMPTY {{
+ SELECT NON EMPTY {{
 
-                             (
-                              [Dim Tiempo].[Dim Tiempo Año].[Dim Tiempo Año].ALLMEMBERS *
-                              [Dim Tiempo].[Dim Tiempo Mes].[Dim Tiempo Mes].ALLMEMBERS
-                             )
-                             }}
-                             ON COLUMNS, NON EMPTY {{ (
-                             (
-                              [Measures].[Fact Ventas Netas],
-                             [Dim Cliente].[Dim Cliente Nombre].[Dim Cliente Nombre].ALLMEMBERS
-                             )
-                             )
-                             }}  ON ROWS FROM  ( SELECT ( {{
-                            {SelectedYears}
-                             }}) ON COLUMNS FROM ( SELECT ( {{
-                            {SelectedMonths}
-                             }} ) ON COLUMNS FROM ( SELECT ( {{
-                            {SelectedClients} 
-                             }} ) ON COLUMNS 
-                             FROM [DWH Northwind]))) 
-                            ";
-            using (AdomdConnection cnn = new AdomdConnection($@"Provider=MSOLAP; Data Source=localhost;Catalog=CuboNorthwindISSC811; User ID=sa; Password = roverto; Persist Security Info = True; Impersonation Level = Impersonate"))
+ (
+  [Dim Tiempo].[Dim Tiempo Año].[Dim Tiempo Año].ALLMEMBERS *
+  [Dim Tiempo].[Dim Tiempo Mes].[Dim Tiempo Mes].ALLMEMBERS
+ )
+ }}
+ ON COLUMNS, NON EMPTY {{ (
+ (
+  [Measures].[Fact Ventas Netas],
+ [Dim Cliente].[Dim Cliente Nombre].[Dim Cliente Nombre].ALLMEMBERS
+ )
+ )
+ }}  ON ROWS FROM  ( SELECT ( {{
+{SelectedYears}
+ }}) ON COLUMNS FROM ( SELECT ( {{
+{SelectedMonths}
+ }} ) ON COLUMNS FROM ( SELECT ( {{
+{SelectedClients} 
+ }} ) ON COLUMNS 
+ FROM [DWH Northwind]))) 
+";
+            using (AdomdConnection cnn = new AdomdConnection($@"Provider=MSOLAP; Data Source=localhost;Catalog=Cubo811; User ID=sa; Password = roverto; Persist Security Info = True; Impersonation Level = Impersonate"))
             {
                 AdomdDataAdapter adomdDataAdapter;
                
@@ -257,6 +257,7 @@ namespace FiltersMDXCubeNortwind
                         data = lstDouble
                     };
                     dlist.Add(objTabla);
+                    //lstDouble.Clear();
                 }
                 var dhyudsyuyuds = dlist;
                                                    
@@ -269,6 +270,7 @@ namespace FiltersMDXCubeNortwind
             lstColumNames.RemoveAt(0);
             var asdasd = lstColumNames;
             var gagag = dataTable;
+            //dlist.Add(Labels);
             return dlist;
         }
 
@@ -307,29 +309,29 @@ namespace FiltersMDXCubeNortwind
             List<ChartDataPie> LstChartDataPie = new List<ChartDataPie>();
             var mdxQuery = $@"
 
-                             SELECT NON EMPTY {{
+ SELECT NON EMPTY {{
 
-                             (
-                              [Dim Tiempo].[Dim Tiempo Año].[Dim Tiempo Año].ALLMEMBERS *
-                              [Dim Tiempo].[Dim Tiempo Mes].[Dim Tiempo Mes].ALLMEMBERS
-                             )
-                             }}
-                             ON COLUMNS, NON EMPTY {{ (
-                             (
-                              [Measures].[Fact Ventas Netas],
-                             [Dim Cliente].[Dim Cliente Nombre].[Dim Cliente Nombre].ALLMEMBERS
-                             )
-                             )
-                             }}  ON ROWS FROM  ( SELECT ( {{
-                            {SelectedYears}
-                             }}) ON COLUMNS FROM ( SELECT ( {{
-                            {SelectedMonths}
-                             }} ) ON COLUMNS FROM ( SELECT ( {{
-                            {SelectedClients} 
-                             }} ) ON COLUMNS 
-                             FROM [DWH Northwind]))) 
-                            ";
-            using (AdomdConnection cnn = new AdomdConnection($@"Provider=MSOLAP; Data Source=localhost;Catalog=CuboNorthwindISSC811; User ID=sa; Password = roverto; Persist Security Info = True; Impersonation Level = Impersonate"))
+ (
+  [Dim Tiempo].[Dim Tiempo Año].[Dim Tiempo Año].ALLMEMBERS *
+  [Dim Tiempo].[Dim Tiempo Mes].[Dim Tiempo Mes].ALLMEMBERS
+ )
+ }}
+ ON COLUMNS, NON EMPTY {{ (
+ (
+  [Measures].[Fact Ventas Netas],
+ [Dim Cliente].[Dim Cliente Nombre].[Dim Cliente Nombre].ALLMEMBERS
+ )
+ )
+ }}  ON ROWS FROM  ( SELECT ( {{
+{SelectedYears}
+ }}) ON COLUMNS FROM ( SELECT ( {{
+{SelectedMonths}
+ }} ) ON COLUMNS FROM ( SELECT ( {{
+{SelectedClients} 
+ }} ) ON COLUMNS 
+ FROM [DWH Northwind]))) 
+";
+            using (AdomdConnection cnn = new AdomdConnection($@"Provider=MSOLAP; Data Source=localhost;Catalog=Cubo811; User ID=sa; Password = roverto; Persist Security Info = True; Impersonation Level = Impersonate"))
             {
                 AdomdDataAdapter adomdDataAdapter;
 
@@ -396,6 +398,7 @@ namespace FiltersMDXCubeNortwind
                         data = lstDouble
                     };
                     dlist.Add(objTabla);
+                    //lstDouble.Clear();
                 }
                 var dhyudsyuyuds = dlist;
 
@@ -408,6 +411,7 @@ namespace FiltersMDXCubeNortwind
             lstColumNames.RemoveAt(0);
             var asdasd = lstColumNames;
             var gagag = dataTable;
+            //dlist.Add(Labels);
             return lstColumNames;
         }
 

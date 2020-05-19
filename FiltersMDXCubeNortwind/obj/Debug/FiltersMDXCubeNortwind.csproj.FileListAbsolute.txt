@@ -6,3 +6,11 @@ C:\Users\ISSCJRMP\Documents\ISSC811\Peimbert\Parcial2\FiltersMDXCubeNortwind\obj
 C:\Users\ISSCJRMP\Documents\ISSC811\Peimbert\Parcial2\FiltersMDXCubeNortwind\obj\Debug\FiltersMDXCubeNortwind.csproj.CopyComplete
 C:\Users\ISSCJRMP\Documents\ISSC811\Peimbert\Parcial2\FiltersMDXCubeNortwind\obj\Debug\FiltersMDXCubeNortwind.dll
 C:\Users\ISSCJRMP\Documents\ISSC811\Peimbert\Parcial2\FiltersMDXCubeNortwind\obj\Debug\FiltersMDXCubeNortwind.pdb
+C:\Users\Daozara\Desktop\Estupidona-Piestean Servicio\FiltersMDXCubeNortwind\bin\Debug\FiltersMDXCubeNortwind.dll
+C:\Users\Daozara\Desktop\Estupidona-Piestean Servicio\FiltersMDXCubeNortwind\bin\Debug\FiltersMDXCubeNortwind.pdb
+C:\Users\Daozara\Desktop\Estupidona-Piestean Servicio\FiltersMDXCubeNortwind\bin\Debug\Microsoft.AnalysisServices.AdomdClient.dll
+C:\Users\Daozara\Desktop\Estupidona-Piestean Servicio\FiltersMDXCubeNortwind\obj\Debug\FiltersMDXCubeNortwind.csproj.CoreCompileInputs.cache
+C:\Users\Daozara\Desktop\Estupidona-Piestean Servicio\FiltersMDXCubeNortwind\obj\Debug\FiltersMDXCubeNortwind.csproj.CopyComplete
+C:\Users\Daozara\Desktop\Estupidona-Piestean Servicio\FiltersMDXCubeNortwind\obj\Debug\FiltersMDXCubeNortwind.dll
+C:\Users\Daozara\Desktop\Estupidona-Piestean Servicio\FiltersMDXCubeNortwind\obj\Debug\FiltersMDXCubeNortwind.pdb
+C:\Users\Daozara\Desktop\Estupidona-Piestean Servicio\FiltersMDXCubeNortwind\obj\Debug\FiltersMDXCubeNortwind.csprojAssemblyReference.cache

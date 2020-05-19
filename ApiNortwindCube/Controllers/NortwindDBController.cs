@@ -9,9 +9,9 @@ using System.Web.Http.Cors;
 
 namespace ApiNortwindCube.Controllers
 {
-   
+    //Todos los otigenes, todas las cabeceras y todos los verbos de metodos(get, put, post)
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    [RoutePrefix("isscjrmp/nortwind")]
+    [RoutePrefix("daozara/nortwind")]//no seas cabron con tu zaranchanclas
     public class NortwindDBController : ApiController
     {
 
@@ -20,15 +20,15 @@ namespace ApiNortwindCube.Controllers
         [Route("GetClients")]
         public HttpResponseMessage GetClients()
         {
-            QueryMdx queryMdx = new QueryMdx();            
+            ConsultaMex queryMdx = new ConsultaMex();            
             return Request.CreateResponse(HttpStatusCode.OK, queryMdx.GetClientsQueryMdx());
         }
 
         [HttpPost]
         [Route("GetDataPie")]
-        public HttpResponseMessage GetDataPie([FromBody] FilterModel filterModel)
+        public HttpResponseMessage GetDataPie([FromBody] DatosAEnviar filterModel)
         {
-            QueryMdx queryMdx = new QueryMdx();
+            ConsultaMex queryMdx = new ConsultaMex();
             return Request.CreateResponse(HttpStatusCode.OK, queryMdx.GetChartDataPieQueryMdx(filterModel.Clients, filterModel.Months, filterModel.Years));
         }
 
@@ -36,18 +36,18 @@ namespace ApiNortwindCube.Controllers
 
         [HttpPost]
         [Route("GetDataBar")]
-        public HttpResponseMessage GetDataBar([FromBody] FilterModel filterModel)
+        public HttpResponseMessage GetDataBar([FromBody] DatosAEnviar filterModel)
         {
 
-            QueryMdx queryMdx = new QueryMdx();
+            ConsultaMex queryMdx = new ConsultaMex();
             return Request.CreateResponse(HttpStatusCode.OK, queryMdx.GetChartDataBarQueryMdx(filterModel.Clients,filterModel.Months,filterModel.Years));
         }
 
         [HttpPost]
         [Route("GetLabelsBar")]
-        public HttpResponseMessage GetLabelsBar([FromBody] FilterModel filterModel)
+        public HttpResponseMessage GetLabelsBar([FromBody] DatosAEnviar filterModel)
         {
-            QueryMdx queryMdx = new QueryMdx();
+            ConsultaMex queryMdx = new ConsultaMex();
             return Request.CreateResponse(HttpStatusCode.OK, queryMdx.GetChartLabelsDataBarQueryMdx(filterModel.Clients, filterModel.Months, filterModel.Years));
         }
     }

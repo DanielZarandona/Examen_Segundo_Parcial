@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FiltersMDXCubeNortwind
 {
-    public class FilterModel
+    public class DatosAEnviar
     {
         public string[] Clients { get; set; }
         public string[] Months { get; set; }
